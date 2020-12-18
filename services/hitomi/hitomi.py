@@ -212,7 +212,9 @@ def get_publication_by_slug(instance, slug, galleryid):
 
     _alt_name = _galleryinfo['japanese_title']
     _type = _galleryinfo['type']
-    _categories = [tag['tag'].lower() for tag in _galleryinfo['tags']]
+    _categories = [tag['tag'].lower() for tag in _galleryinfo['tags']
+                   ] if _galleryinfo['tags'] else []
+
     _serie_data = _soup.find(
         class_='gallery-info').find(class_='comma-list')  # .find('li').text
     if not _serie_data:

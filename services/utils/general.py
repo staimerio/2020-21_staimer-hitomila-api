@@ -23,7 +23,7 @@ def get_node_light_novel_item(
     chapters=[],
 ):
     """"If lang is different than en(english), add lang to slug"""
-    _title = "{0}-{1}".format(title, hreflang)
+    _title = "{0}-{1}".format(title, lang)
     _item = {
         u'url': url.replace(",", " "),
         u'slug': slugify(_title),
