@@ -55,6 +55,7 @@ class Hitomi(object):
         self.hreflang = app.config.get("HITOMI_"+lang+"_HREFLANG")
         self.langname = app.config.get("HITOMI_"+lang+"_LANGNAME")
         self.gallery = app.config.get("HITOMI_"+lang+"_GALLERY")
+        self.chapter_prefix = app.config.get("HITOMI_"+lang+"_CHAPTER_PREFIX")
 
 
 def get_text_from_req(url, headers={}):
@@ -172,6 +173,8 @@ def get_instance_from_lang(lang):
     """Get an MTLNovel instance from a language"""
     if lang == "en":
         return Hitomi(lang.upper())
+    elif lang == "it":
+        return Hitomi(lang.upper())
     raise ValueError("Language {0} is invalid.".format(lang))
 
 
@@ -245,7 +248,7 @@ def get_publication_by_slug(instance, slug, galleryid):
     _chapters.append(
         {
             u'number': 1,
-            u'title': 'Chapter 01',
+            u'title': "{0} 01".format(instance.chapter_prefix),
             u'images': _images,
         }
     )
