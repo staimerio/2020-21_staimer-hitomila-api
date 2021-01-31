@@ -171,13 +171,14 @@ def get_list_json_items(instance, pages, limit=100):
 
 def get_instance_from_lang(lang):
     """Get an MTLNovel instance from a language"""
-    if lang == "en":
-        return Hitomi(lang.upper())
-    elif lang == "it":
-        return Hitomi(lang.upper())
-    elif lang == "de":
-        return Hitomi(lang.upper())
-    raise ValueError("Language {0} is invalid.".format(lang))
+    # if lang == "en":
+    #     return Hitomi(lang.upper())
+    # elif lang == "it":
+    #     return Hitomi(lang.upper())
+    # elif lang == "de":
+    #     return Hitomi(lang.upper())
+    # raise ValueError("Language {0} is invalid.".format(lang))
+    return Hitomi(lang.upper())
 
 
 def get_latest(lang="en", pages=1, limit=10):
